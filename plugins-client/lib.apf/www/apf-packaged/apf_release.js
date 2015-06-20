@@ -39882,7 +39882,7 @@ apf.runNonIe = function (){
         ASYNCNOTSUPPORTED           = true;
     } catch(e) {/*trap*/} 
     
-    Document.prototype.onreadystatechange = null;
+    Document.onreadystatechange = null;
     Document.prototype.parseError         = 0;
     
     Array.prototype.item = function(i){return this[i];};
