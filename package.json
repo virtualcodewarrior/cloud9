@@ -11,7 +11,7 @@
     },
 
     "dependencies": {
-        "jsDAV": "git://github.com/virtualcodewarrior/jsDAV",
+        "jsDAV": "git://github.com/virtualcodewarrior/jsDAVOld",
         "async": "0.1.21",
         "mappings": "0.1.x",
         "amd-loader": "0.0.4",
