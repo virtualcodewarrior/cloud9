@@ -170,7 +170,7 @@ module.exports = ext.register("ext/commands/commands", apf.extend(
             delete this.commands[name];
 
         
-            var ckb = this.commmandKeyBinding;
+            var ckb = this.commandKeyBinding;
             for (var hashId in ckb) {
                 for (var key in ckb[hashId]) {
                     var cl = ckb[hashId][key];
@@ -189,7 +189,7 @@ module.exports = ext.register("ext/commands/commands", apf.extend(
             if(!key)
                 return;
 
-            var ckb = this.commmandKeyBinding;
+            var ckb = this.commandKeyBinding;
             var self = this;
             key.split("|").forEach(function(keyPart) {
                 var binding = self.parseKeys(keyPart, command);
