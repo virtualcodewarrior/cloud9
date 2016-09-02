@@ -11,7 +11,7 @@
     },
 
     "dependencies": {
-        "jsDAV": "https://github.com/virtualcodewarrior/jsDAV/tarball/f78c34c94fa915ca1b24975839b78ff88ea851d6",
+        "jsDAV": "https://github.com/virtualcodewarrior/jsDAV",
         "async": "0.1.21",
         "mappings": "0.1.x",
         "amd-loader": "0.0.4",
@@ -37,9 +37,10 @@
         "connect-architect": "0.0.6",
         "architect-agent": "0.2.2",
         "architect-socket-transport": "0.3.0",
+        "architect-build": "git://github.com/virtualcodewarrior/architect-build",
 
 
-        "ace":          "https://github.com/virtualcodewarrior/ace/tarball/cacd51e2fe911971428dd40d9b09ba3c913a7ed5",
+        "ace":          "git://github.com/virtualcodewarrior/ace#v1.2.5",
         "asyncjs":      "https://github.com/virtualcodewarrior/async.js/tarball/bd936c60bb87c58052bcc0307f4e637bd35c908f",
         "v8debug":      "https://github.com/virtualcodewarrior/lib-v8debug/tarball/d2fac9b09724cb2e75e2807191eace9bc27d3b52",
         "treehugger":   "https://github.com/virtualcodewarrior/treehugger/tarball/c6fb8e8c7ad7654577e1f843559fb91e925a3b79"
