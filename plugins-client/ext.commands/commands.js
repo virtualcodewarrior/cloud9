@@ -194,21 +194,20 @@ module.exports = ext.register("ext/commands/commands", apf.extend(
 			var shortcut = typeof key == "string" ? key : key[this.platform]
 			if (shortcut){
 			  shortcut.split("|").forEach(function(keyPart) {
-				  var binding = self.parseKeys(keyPart, command);
-				  var hashId = binding.hashId;
-				  var hash = (ckb[hashId] || (ckb[hashId] = {}))
+//				  var binding = self.parseKeys(keyPart, command);
+//				  var hashId = binding.hashId;
 				  
-				  if (!hash[binding.key]) {
-					  hash[binding.key] = command;
-				  } else {
-					  if (!Array.isArray(hash[binding.key]))
+//				  if (!ckb[shortcut]) {
+					  ckb[shortcut.toLowerCase()] = command;
+//				  } else {
+/*					  if (!Array.isArray(hash[binding.key]))
 						  hash[binding.key] = [hash[binding.key]]
 					  
 					  if (asDefault || command.isDefault)
 						  hash[binding.key].unshift(command);
 					  else
 						  hash[binding.key].push(command);
-				  }
+				  }*/
 			  });
 			}
         },
