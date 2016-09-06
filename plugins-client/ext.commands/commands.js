@@ -198,7 +198,7 @@ module.exports = ext.register("ext/commands/commands", apf.extend(
 //				  var hashId = binding.hashId;
 				  
 //				  if (!ckb[shortcut]) {
-					  ckb[shortcut.toLowerCase()] = command;
+					  ckb[keyPart.toLowerCase()] = command;
 //				  } else {
 /*					  if (!Array.isArray(hash[binding.key]))
 						  hash[binding.key] = [hash[binding.key]]
