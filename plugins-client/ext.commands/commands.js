@@ -191,23 +191,26 @@ module.exports = ext.register("ext/commands/commands", apf.extend(
 
             var ckb = this.commandKeyBinding;
             var self = this;
-            key.split("|").forEach(function(keyPart) {
-                var binding = self.parseKeys(keyPart, command);
-                var hashId = binding.hashId;
-                var hash = (ckb[hashId] || (ckb[hashId] = {}))
-                
-                if (!hash[binding.key]) {
-                    hash[binding.key] = command;
-                } else {
-                    if (!Array.isArray(hash[binding.key]))
-                        hash[binding.key] = [hash[binding.key]]
-                    
-                    if (asDefault || command.isDefault)
-                        hash[binding.key].unshift(command);
-                    else
-                        hash[binding.key].push(command);
-                }
-            });
+			var shortcut = typeof key == "string" ? key : key[this.platform]
+			if (shortcut){
+			  shortcut.split("|").forEach(function(keyPart) {
+				  var binding = self.parseKeys(keyPart, command);
+				  var hashId = binding.hashId;
+				  var hash = (ckb[hashId] || (ckb[hashId] = {}))
+				  
+				  if (!hash[binding.key]) {
+					  hash[binding.key] = command;
+				  } else {
+					  if (!Array.isArray(hash[binding.key]))
+						  hash[binding.key] = [hash[binding.key]]
+					  
+					  if (asDefault || command.isDefault)
+						  hash[binding.key].unshift(command);
+					  else
+						  hash[binding.key].push(command);
+				  }
+			  });
+			}
         },
          
         removeCommandByName : function(name){
