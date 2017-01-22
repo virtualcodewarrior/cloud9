@@ -1,4 +1,6 @@
 var Connect = require("connect");
+var serveStatic = require("serve-static");
+var serveFavicon = require("serve-favicon");
 
 module.exports = function startup(options, imports, register) {
 
@@ -10,14 +12,14 @@ module.exports = function startup(options, imports, register) {
     var workerPrefix = options.workerPrefix || "/static";
 
     var connect = imports.connect.getModule();
-    var staticServer = connect.createServer();
+    var staticServer = connect();
     imports.connect.useMain(options.bindPrefix || prefix, staticServer);
 
     register(null, {
         "static": {
 
             favicon: function (path, options) {
-                imports.connect.useMain(Connect.favicon(path, options));
+                imports.connect.useMain(serveFavicon(path, options));
             },
 
             addStatics: function(statics) {
@@ -25,7 +27,7 @@ module.exports = function startup(options, imports, register) {
                 statics.forEach(function(s) {
 
 //                    console.log("MOUNT", prefix, s.mount, s.path);
-                    
+
                     if (s.router) {
                         var server = connect.static(s.path);
                         staticServer.use(s.mount, function(req, res, next) {
@@ -35,7 +37,7 @@ module.exports = function startup(options, imports, register) {
 
                     } else {
 
-                        staticServer.use(s.mount, connect.static(s.path));
+                        staticServer.use(s.mount, serveStatic(s.path));
 
                     }
 
@@ -62,7 +64,7 @@ module.exports = function startup(options, imports, register) {
             getStaticPrefix: function() {
                 return prefix;
             },
-            
+
             getWorkerPrefix: function() {
                 return workerPrefix;
             }

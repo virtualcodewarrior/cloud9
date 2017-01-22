@@ -48,6 +48,7 @@ var config = [
     "./../plugins-client/lib.treehugger",
     "./../plugins-client/lib.v8debug",
     "./../plugins-client/lib.requirejs",
+    "./../plugins-client/lib.termjs",
     "./c9.smith.io",
     {
         packagePath: "./c9.smith.io.ide",
@@ -149,7 +150,8 @@ var config = [
             "ext/autosave/autosave",
             "ext/revisions/revisions",
             "ext/language/liveinspect",
-            "ext/splitview/splitview"
+            "ext/splitview/splitview",
+            "ext/terminal/terminal"
         ]
     }, {
         packagePath: "vfs-architect/local",
@@ -168,8 +170,9 @@ var config = [
     },
     {
         packagePath: "./connect.session",
-        key: "cloud9.sid." + port,
-        secret: "v1234"
+        name: "cloud9.sid." + port,
+        secret: "v1234",
+        saveUninitialized: true
     },
     {
         packagePath: "./connect.session.file",
@@ -225,7 +228,8 @@ var config = [
     },
     "./cloud9.ide.shell",
     "./cloud9.ide.state",
-    "./cloud9.ide.watcher"
+    "./cloud9.ide.watcher",
+    "./cloud9.ide.terminal"
 ];
 
 if (useAuth) {
